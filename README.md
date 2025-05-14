@@ -1,2 +1,2 @@
 # movie-management-back
-Phase 1 of movie cinedata data management
+Phase 1 of cinedata data management
