@@ -40,14 +40,14 @@ def get_ratings(db: session, skip: int = 0, limit: int = 100, user_id: int = Non
 
     return query.offset(skip).limit(limit).all()
 
-def get_tag(db: session, user_id: int, movie_id: int, tag_test: str):
+def get_tag(db: session, user_id: int, movie_id: int, tag_text: str):
     """ Reccupere un tag en fonction des champs userId, movieId et tag_text """
     return(
         db.query(Tag)
         .filter(
             Tag.movieId == movie_id,
             Tag.userId == user_id,
-            Tag.tag == tag_test
+            Tag.tag == tag_text
         )
         .first()
     )
@@ -71,7 +71,7 @@ def get_link(db: session, movie_id):
     return db.query(Link).filter(Tag.movieId == movie_id).first()
 
 def get_links(db: session, skip: int = 0, limit: int = 100):
-    return db.query(Tag).offset(skip).limit(limit).all()
+    return db.query(Link).offset(skip).limit(limit).all()
 
 # --- Requetes analytiques ---
 def get_movie_count(db: session):

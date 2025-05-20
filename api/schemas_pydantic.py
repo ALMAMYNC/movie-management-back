@@ -79,9 +79,19 @@ class TagSimple(BaseModel):
 class LinkSimple(BaseModel):
     movieId: int
     imdbId: Optional[str]
-    tmdId: Optional[str]
+    tmdbId: Optional[str]
 
     class config:
+        orm_mode = True
+
+
+class AnalyticsResponse(BaseModel):
+    movie_count: int
+    rating_count: int
+    tag_count: int
+    link_count: int
+
+    class Config:
         orm_mode = True
 
 
